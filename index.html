@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kikoushek — Game Developer</title>
+  <meta name="description" content="Portfolio of Kikoushek, an indie game developer building worlds from pure code." />
+  <meta name="theme-color" content="#07080f" />
+  <script>document.documentElement.classList.add("js");</script>
+  <meta property="og:title" content="Kikoushek — Game Developer" />
+  <meta property="og:description" content="Games and interactive worlds built from scratch." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 30 16 16 30 2 16Z' fill='%23f5c66b'/%3E%3Cpath d='M16 8 24 16 16 24 8 16Z' fill='%2307080f'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Loading screen -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-logo"><span class="gem"></span>KIKOUSHEK</div>
+    <div class="loader-bar"><span></span></div>
+    <div class="loader-text mono">Loading world<span class="dots"></span></div>
+  </div>
+
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="brand" aria-label="Home"><span class="gem"></span><span>KIKOUSHEK</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" data-section="home">Home</a>
+        <a href="#player" data-section="player">Player</a>
+        <a href="#quests" data-section="quests">Quests</a>
+        <a href="#achievements" data-section="achievements">Achievements</a>
+        <a href="#contact" data-section="contact">Contact</a>
+      </nav>
+      <a class="btn btn-ghost btn-sm nav-cta" id="navGithub" href="#" target="_blank" rel="noopener">
+        <span data-icon="github"></span> GitHub
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="status-pill mono"><span class="pulse"></span>PLAYER ONE · ONLINE</div>
+          <h1 class="hero-title" id="heroName">Kikoushek</h1>
+          <p class="hero-sub">I build <span class="type" id="typewriter"></span><span class="caret"></span></p>
+          <p class="hero-intro" id="heroIntro"></p>
+          <div class="hero-actions">
+            <a href="#quests" class="btn btn-primary"><span data-icon="play"></span> Press Start</a>
+            <a href="#player" class="btn btn-ghost"><span data-icon="user"></span> Player Profile</a>
+          </div>
+          <dl class="hero-hud mono" id="heroHud"></dl>
+        </div>
+
+        <div class="hero-visual">
+          <div class="viewport hud" id="heroViewport">
+            <canvas id="heroScene" aria-label="Animated illustration of floating islands above a sea of clouds" role="img"></canvas>
+            <div class="vp-label vp-tl mono"><span class="rec"></span>LIVE · SKY ISLANDS</div>
+            <div class="vp-label vp-tr mono" id="fps">FPS --</div>
+            <div class="vp-label vp-bl mono">X 0482 · Y 1290 · Z 0077</div>
+            <div class="vp-scan"></div>
+          </div>
+          <div class="vp-caption mono">// rendered live in your browser, 100% code-generated</div>
+        </div>
+      </div>
+      <a href="#player" class="scroll-hint mono" aria-label="Scroll down">SCROLL<span></span></a>
+    </section>
+
+    <!-- PLAYER -->
+    <section class="section" id="player">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow mono">// 01 — Player profile</span>
+          <h2>Character <em>Sheet</em></h2>
+        </header>
+
+        <div class="player-grid">
+          <article class="player-card hud reveal">
+            <div class="avatar">
+              <div class="avatar-hex"><span id="avatarLetter">K</span></div>
+              <div class="avatar-ring"></div>
+            </div>
+            <h3 class="player-name" id="playerName">Kikoushek</h3>
+            <div class="player-class mono" id="playerClass">Indie Game Developer</div>
+            <div class="xp">
+              <div class="xp-top mono"><span id="playerLevel">LV. 01</span><span>XP</span></div>
+              <div class="xp-bar"><span id="xpFill"></span></div>
+              <div class="xp-note mono">Next level: ship another game</div>
+            </div>
+            <ul class="attr-list mono">
+              <li><span>Main quest</span><b>Building worlds</b></li>
+              <li><span>Weapon of choice</span><b>C++ &amp; code</b></li>
+              <li><span>Special ability</span><b>Procedural magic</b></li>
+              <li><span>Status</span><b class="ok">Open to collabs</b></li>
+            </ul>
+          </article>
+
+          <div class="player-side">
+            <article class="panel reveal">
+              <h3 class="panel-title mono"><span data-icon="scroll"></span> Backstory</h3>
+              <p>Hey, I'm <strong>Kikoushek</strong>, a self-taught game developer who loves building worlds from scratch. I started out with games that run in the browser and moved on to <strong>Unreal Engine 5</strong> and <strong>C++</strong>.</p>
+              <p>What I love most is <strong>procedural generation</strong>: making models, textures and sound with code instead of drawing them by hand. This portfolio is where I collect everything I create.</p>
+            </article>
+
+            <article class="panel reveal">
+              <h3 class="panel-title mono"><span data-icon="tree"></span> Skill tree</h3>
+              <ul class="skills" id="skills"></ul>
+            </article>
+
+            <article class="panel reveal">
+              <h3 class="panel-title mono"><span data-icon="bag"></span> Inventory</h3>
+              <ul class="inventory" id="inventory"></ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUESTS -->
+    <section class="section" id="quests">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow mono">// 02 — Projects</span>
+          <h2>Quest <em>Log</em></h2>
+          <p class="section-sub">Games and creations I've built. Click a quest to see the details.</p>
+        </header>
+
+        <div id="featured"></div>
+
+        <div class="filters reveal" id="filters" role="tablist" aria-label="Filter projects"></div>
+        <div class="quest-grid" id="questGrid"></div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="section" id="achievements">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow mono">// 03 — Milestones</span>
+          <h2>Achievements <em>Unlocked</em></h2>
+          <div class="ach-progress mono" id="achProgress"></div>
+        </header>
+        <div class="ach-grid" id="achGrid"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact hud reveal">
+          <span class="eyebrow mono">// 04 — Multiplayer</span>
+          <h2>Join the <em>Party</em></h2>
+          <p>Want to team up on a project, share feedback or just say hi? Find me on GitHub.</p>
+          <div class="contact-actions" id="contactActions"></div>
+          <div class="contact-deco mono" aria-hidden="true">P2 · PRESS START TO JOIN</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner mono">
+      <span>© <span id="year"></span> Kikoushek · Hand-crafted with HTML, CSS &amp; JS</span>
+      <span class="hint">Psst… try the Konami code ↑↑↓↓←→←→BA</span>
+    </div>
+  </footer>
+
+  <!-- Project details -->
+  <dialog class="modal" id="modal" aria-labelledby="modalTitle">
+    <div class="modal-inner" id="modalBody"></div>
+  </dialog>
+
+  <div class="toast mono" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/scene.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
