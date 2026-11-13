@@ -10,7 +10,7 @@
 
 window.SITE = {
   name: "Kikoushek",
-  role: "Indie Game Developer",
+  role: "Aspiring Game Developer",
   // Words cycled by the typewriter in the hero section
   typewriter: ["worlds", "games", "islands in the sky", "things from pure code"],
   intro:
